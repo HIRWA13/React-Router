@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <section className="relative">
         <img src="images/home-img.png" className="w-full"/>
-        <div className="absolute bg-secondary w-3/4 p-20 opacity-40 left-28 top-2/4">
+        <div className="absolute bg-secondary w-3/4 p-20 opacity-40 left-44 top-2/4">
           <h1 className="text-3xl p-2 text-center font-bold">You got the travel plans, we got the travel vans.</h1>
           <p className="text-lg text-center font-semibold">
             Add adventure to your life by joining the #vanlife movement. Rent

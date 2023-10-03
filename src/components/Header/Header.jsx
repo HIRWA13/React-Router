@@ -14,7 +14,9 @@ export default function Header() {
                        <Link to="/about">
                          <li className="capitalize cursor-pointer text-lg font-semibold">about</li>
                        </Link>
-                        <li className="capitalize cursor-pointer text-lg font-semibold">vans</li>
+                       <Link to="/vans">
+                         <li className="capitalize cursor-pointer text-lg font-semibold">vans</li>
+                       </Link>
                     </ul>
                 </nav>
             </header>
