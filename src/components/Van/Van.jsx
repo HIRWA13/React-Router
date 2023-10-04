@@ -1,24 +1,30 @@
 export default function Van({ vans }) {
   const simpleStyles = {
     backgroundColor: "#E17654",
-    padding: "8px 20px",
+    padding: "4px 20px",
     color: "white",
     borderRadius: "6px",
     width: "85px",
+    textAlign: "center",
+    fontWeight: "bold"
   };
   const ruggedStyles = {
     backgroundColor: "#115E59",
-    padding: "8px 20px",
+    padding: "4px 20px",
     color: "white",
     borderRadius: "6px",
     width: "85px",
+    textAlign: "center",
+    fontWeight: "bold"
   };
   const luxuryStyles = {
     backgroundColor: "#161616",
-    padding: "8px 20px",
+    padding: "4px 20px",
     color: "white",
     borderRadius: "6px",
     width: "85px",
+    textAlign: "center",
+    fontWeight: "bold"
   };
   return (
     <>
@@ -29,7 +35,7 @@ export default function Van({ vans }) {
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-xl font-semibold p-2">{vans.name}</h1>
-            <div className="p-2">
+            <div className="px-2">
               {vans.type === "simple" && (
                 <p style={simpleStyles}>{vans.type}</p>
               )}

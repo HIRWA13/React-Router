@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
     return (
         <>
-            <header className="flex justify-between py-4 px-20 bg-secondary">
+            <header className="flex justify-between py-4 px-20 bg-secondary shadow-md">
                 <div>
                    <Link to="/">
                      <h1 className="text-2xl uppercase font-bold cursor-pointer">#vanlife</h1>
