@@ -15,7 +15,7 @@ export default function Vans(){
     return (
         <>
         <h1 className="text-5xl p-4 font-semibold text-center">Explore our van options 🚐</h1>
-            <article className="w-4/5 mx-auto mt-10 mb-5 grid grid-cols-3 place-items-center gap-4 bg-secondary p-10">
+            <article className="mt-10 mb-5 grid grid-cols-3 place-items-center gap-6 bg-secondary p-10">
                 {vans && vans.map(van => {
                     return <Link key={van.id} to={`/vans/${van.id}`}>
                                 <Van vans={van}/> 

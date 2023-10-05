@@ -8,7 +8,8 @@ export default {
     extend: {
       colors:{
         primary: "#FF8C38",
-        secondary: "#FFF7ED"
+        secondary: "#FFF7ED",
+        darkGray: "#252525"
       }
     },
   },
