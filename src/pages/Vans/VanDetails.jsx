@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-const simpleStyles = {
+export const simpleStyles = {
   backgroundColor: "#E17654",
   padding: "4px 20px",
   color: "white",
@@ -10,7 +10,7 @@ const simpleStyles = {
   textAlign: "center",
   fontWeight: "bold"
 };
-const ruggedStyles = {
+export const ruggedStyles = {
   backgroundColor: "#115E59",
   padding: "4px 20px",
   color: "white",
@@ -19,7 +19,7 @@ const ruggedStyles = {
   textAlign: "center",
   fontWeight: "bold"
 };
-const luxuryStyles = {
+export const luxuryStyles = {
   backgroundColor: "#161616",
   padding: "4px 20px",
   color: "white",
