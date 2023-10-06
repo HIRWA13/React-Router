@@ -46,14 +46,14 @@ export default function VanDetails() {
           <p className="underline cursor-pointer text-lg py-4">Back to all vans</p>
         </Link>
         <article>
-          <div className="grid grid-cols-3 gap-4">
-            <div className="col-start-1 col-end-2">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="md:col-start-1 md:col-end-2">
               <img
                 src={van.imageUrl}
                 className="rounded-lg"
               />
             </div>
-            <div className="col-start-2 col-end-4 py-4 space-y-4">
+            <div className="md:col-start-2 md:col-end-4 py-4 space-y-4">
               {van.type === "simple" && <p style={simpleStyles}>{van.type}</p>}
               {van.type === "rugged" && <p style={ruggedStyles}>{van.type}</p>}
               {van.type === "luxury" && <p style={luxuryStyles}>{van.type}</p>}
