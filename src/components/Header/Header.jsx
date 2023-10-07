@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 
+export const activeStyles = {
+  fontWeight: "bold",
+  textDecoration: "underline",
+  color: "#161616",
+};
+
 export default function Header() {
-  const activeStyles = {
-    fontWeight: "bold",
-    textDecoration: "underline",
-    color: "#161616",
-  };
+
   return (
     <>
       <header className="flex justify-between py-4 px-4 bg-secondary shadow-md">

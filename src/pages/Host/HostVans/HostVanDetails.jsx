@@ -1,23 +1,29 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, NavLink, Outlet } from "react-router-dom";
 
 import { simpleStyles, ruggedStyles, luxuryStyles } from "../../Vans/VanDetails" 
 
+const activeStyles = {
+  fontWeight: "bold",
+  textDecoration: "underline",
+  color: "#161616",
+};
+
 export default function HostVanDetails() {
-  const [hostVanDetails, setHostVanDetails] = useState({});
   const params = useParams();
+  const [hostVanDetails, setHostVanDetails] = useState({});
+  
   useEffect(() => {
     getHostVanDetails();
-  }, [params.id]);
+  }, []);
   const getHostVanDetails = async () => {
     const res = await fetch(`/api/host/vans/${params.id}`);
     const data = await res.json();
-    setHostVanDetails(data.vans[0]);
+    setHostVanDetails(data.vans);
   };
-  console.log(hostVanDetails);
   return (
     <>
-      <section className="p-2 rounded-md">
+      <section className="bg-white p-4 rounded-md">
         <div>
           <Link to="/host/vans" className="p-2 texl-sm underline">
             Back to your listed vans
@@ -37,6 +43,18 @@ export default function HostVanDetails() {
             </div>
           </div>
         </article>
+        <nav className="flex items-center gap-3 mt-2">
+          <NavLink to="." end style={({isActive})=> isActive ? activeStyles : null}>
+            <p className="text-sm">Details</p>
+          </NavLink>
+          <NavLink to="pricing" style={({isActive})=> isActive ? activeStyles : null}>
+            <p className="text-sm">Pricing</p>
+          </NavLink>
+          <NavLink to="photos" style={({isActive})=> isActive ? activeStyles : null}>
+            <p className="text-sm">Photos</p>
+          </NavLink>
+        </nav>
+        <Outlet context={hostVanDetails}/>
       </section>
     </>
   );
