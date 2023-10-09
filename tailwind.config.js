@@ -9,7 +9,9 @@ export default {
       colors:{
         primary: "#FF8C38",
         secondary: "#FFF7ED",
-        darkGray: "#252525"
+        darkGray: "#252525",
+        darkGreen: "#115E59",
+        black: "#161616"
       }
     },
   },
