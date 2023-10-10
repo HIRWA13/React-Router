@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import Van from "../../components/Van/Van";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 
 export default function Vans(){
     const [vans, setVans] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type");
-   
+    const location = useLocation();
+    console.log(location)   
     const displayedVans = typeFilter 
        ? vans.filter(van => van.type.toLowerCase() === typeFilter)
        : vans
