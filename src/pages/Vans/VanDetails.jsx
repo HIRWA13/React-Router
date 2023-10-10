@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 export const simpleStyles = {
   backgroundColor: "#E17654",
@@ -33,16 +33,19 @@ export default function VanDetails() {
   const params = useParams();
   const [van, setVan] = useState({});
 
+  const location = useLocation()
+
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
       .then((data) => setVan(data.vans));
   }, [params.id]);
 
+  const search = location.state?.search || ""
   return (
     <>
       <section className="w-3/4 mx-auto mt-10 p-2">
-        <Link to="/vans">
+        <Link to={`/vans/?${search}`}>
           <p className="underline cursor-pointer text-lg py-4">Back to all vans</p>
         </Link>
         <article>
