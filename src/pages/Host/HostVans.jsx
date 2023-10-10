@@ -13,7 +13,7 @@ export default function HostVans() {
     setHostVans(data.vans);
   };
   const vans = hostVans.map((van) => {
-    return <Link to={`/host/vans/${van.id}`}  key={van.id}><HostVan van={van} /></Link>;
+    return <Link to={van.id} key={van.id}><HostVan van={van} /></Link>;
   });
 
   return (

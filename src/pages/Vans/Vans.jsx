@@ -4,10 +4,10 @@ import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans(){
     const [vans, setVans] = useState([]);
-   const [searchParams, setSearchParams] = useSearchParams();
-   const typeFilter = searchParams.get("type");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const typeFilter = searchParams.get("type");
    
-   const displayedVans = typeFilter 
+    const displayedVans = typeFilter 
        ? vans.filter(van => van.type.toLowerCase() === typeFilter)
        : vans
 
@@ -30,7 +30,7 @@ export default function Vans(){
         </div>
             <article className="mt-10 mb-5 grid grid-cols-1 md:grid-cols-3 place-items-center gap-6 bg-secondary p-10">
                 {displayedVans && displayedVans.map(van => {
-                    return <Link key={van.id} to={`/vans/${van.id}`}>
+                    return <Link key={van.id} to={van.id}>
                                 <Van vans={van}/> 
                            </Link>
                 })}
