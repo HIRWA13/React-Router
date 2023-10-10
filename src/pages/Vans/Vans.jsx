@@ -30,7 +30,7 @@ export default function Vans(){
         </div>
             <article className="mt-10 mb-5 grid grid-cols-1 md:grid-cols-3 place-items-center gap-6 bg-secondary p-10">
                 {displayedVans && displayedVans.map(van => {
-                    return <Link key={van.id} to={van.id}>
+                    return <Link key={van.id} to={van.id} state={{search: searchParams.toString()}}>
                                 <Van vans={van}/> 
                            </Link>
                 })}
