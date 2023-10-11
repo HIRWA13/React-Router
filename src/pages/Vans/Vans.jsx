@@ -1,23 +1,38 @@
 import { useState, useEffect } from "react";
-import Van from "../../components/Van/Van";
 import { Link, useSearchParams } from "react-router-dom";
+import Van from "../../components/Van/Van";
+import { getVans } from "../../../api";
 
 export default function Vans(){
     const [vans, setVans] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     const typeFilter = searchParams.get("type");  
     const displayedVans = typeFilter 
        ? vans.filter(van => van.type.toLowerCase() === typeFilter)
        : vans
 
     useEffect(() => {
-       fetch("/api/vans")
-            .then(res => res.json())
-            .then(data => setVans(data.vans))
-
+        async function loadVans() {
+                setIsLoading(true)
+                try {
+                    const data = await getVans()
+                    setVans(data)
+                    setError(null)
+                    
+                } catch(err) {
+                    setError(err)
+                } finally {
+                    setIsLoading(false)
+                }
+            }
+            
+        loadVans();
     }, []);
 
-
+    if (isLoading) return <h1 className="text-2xl p-2 font-bold">Loading...</h1>
+    if(error) return <h1 className="text-2xl p-2 font-bold">There was an error trying to load vans</h1>
     return (
         <>
         <h1 className="text-5xl p-4 font-semibold text-center">Explore our van options 🚐</h1>  
@@ -38,7 +53,10 @@ export default function Vans(){
         </div>
             <article className="mt-10 mb-5 grid grid-cols-1 md:grid-cols-3 place-items-center gap-6 bg-secondary p-10">
                 {displayedVans && displayedVans.map(van => {
-                    return <Link key={van.id} to={van.id} state={{search: searchParams.toString()}}>
+                    return <Link key={van.id} to={van.id} state={{
+                                                                    search: `?${searchParams.toString()}`,
+                                                                    type: typeFilter
+                                                                }}>
                                 <Van vans={van}/> 
                            </Link>
                 })}

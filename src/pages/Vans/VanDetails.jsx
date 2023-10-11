@@ -42,11 +42,12 @@ export default function VanDetails() {
   }, [params.id]);
 
   const search = location.state?.search || ""
+  const type = location.state?.type || "all"
   return (
     <>
       <section className="w-3/4 mx-auto mt-10 p-2">
         <Link to={`/vans/?${search}`}>
-          <p className="underline cursor-pointer text-lg py-4">Back to all vans</p>
+          <p className="underline cursor-pointer text-lg py-4">Back to {type} vans</p>
         </Link>
         <article>
           <div className="grid md:grid-cols-3 gap-4">
