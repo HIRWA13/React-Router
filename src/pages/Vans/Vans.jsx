@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import Van from "../../components/Van/Van";
 import { getVans } from "../../../api";
 
-export const vansDataLoader = () => {
+export function vansDataLoader () {
     return getVans();
 }
 
