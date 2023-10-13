@@ -41,6 +41,9 @@ export default function Header() {
                 vans
               </li>
             </NavLink>
+            <NavLink to="/login">
+                <img src="/images/userCircle.svg"/>
+            </NavLink>
           </ul>
         </nav>
       </header>
