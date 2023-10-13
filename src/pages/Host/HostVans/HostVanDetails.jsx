@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import {  Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 
 import { simpleStyles, ruggedStyles, luxuryStyles } from "../../Vans/VanDetails" 
+import { getHostVans } from "../../../../api";
+import { requireAuth } from "../../../../utils";
 
 const activeStyles = {
   fontWeight: "bold",
@@ -9,18 +10,13 @@ const activeStyles = {
   color: "#161616",
 };
 
+export const hostVanDetailsDataLoader = async ({params}) => {
+  await requireAuth();
+  return getHostVans(params.id);
+}
+
 export default function HostVanDetails() {
-  const params = useParams();
-  const [hostVanDetails, setHostVanDetails] = useState({});
-  
-  useEffect(() => {
-    getHostVanDetails();
-  }, []);
-  const getHostVanDetails = async () => {
-    const res = await fetch(`/api/host/vans/${params.id}`);
-    const data = await res.json();
-    setHostVanDetails(data.vans);
-  };
+  const hostVanDetails = useLoaderData();
   return (
     <>
       <section className="bg-white p-4 rounded-md">
