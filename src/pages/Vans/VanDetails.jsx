@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
+import { getVans } from "../../../api";
 
 export const simpleStyles = {
   backgroundColor: "#E17654",
@@ -29,20 +30,20 @@ export const luxuryStyles = {
   fontWeight: "bold"
 };
 
+export const vanDetailLoader = ({params}) => {
+  return getVans(params.id)
+}
+
 export default function VanDetails() {
-  const params = useParams();
-  const [van, setVan] = useState({});
+
+  const van = useLoaderData()
 
   const location = useLocation()
 
-  useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans));
-  }, [params.id]);
 
   const search = location.state?.search || ""
   const type = location.state?.type || "all"
+
   return (
     <>
       <section className="w-3/4 mx-auto mt-10 p-2">
