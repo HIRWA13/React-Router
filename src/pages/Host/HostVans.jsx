@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 import HostVan from "../../components/HostVan/HostVan";
-export default function HostVans() {
-  const [hostVans, setHostVans] = useState([]);
-  useEffect(() => {
-    getHostVan();
-  }, []);
+import { getHostVans } from "../../../api";
+import { requireAuth } from "../../../utils";
 
-  const getHostVan = async () => {
-    const res = await fetch("/api/host/vans");
-    const data = await res.json();
-    setHostVans(data.vans);
-  };
+
+export const hostVansDataLoader = async () => {
+  await requireAuth();
+  return getHostVans();
+}
+
+export default function HostVans() {
+  const hostVans = useLoaderData();
+
   const vans = hostVans.map((van) => {
     return <Link to={van.id} key={van.id}><HostVan van={van} /></Link>;
   });
