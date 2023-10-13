@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route} from "react-router-dom";
 import { vansDataLoader as vansLoader} from "./pages/Vans/Vans";
+import { vanDetailLoader } from "./pages/Vans/VanDetails";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -27,17 +28,72 @@ const router = createBrowserRouter(createRoutesFromElements(
 <Route path="/" element={<Layout/>}>
   <Route index element={<Home />} />
   <Route path="about" element={<About />} />
-  <Route path="vans" element={<Vans />} loader={vansLoader} errorElement={<ErrorElement/>}/>
-  <Route path="vans/:id" element={<VanDetails />} />
-  <Route path="host" element={<HostLayout/>}>
-      <Route index element={<Dashboard />} />
-      <Route path="income" element={<Income />} />
-      <Route path="reviews" element={<Reviews />} />
-      <Route path="vans" element={<HostVans />} />
-      <Route path="vans/:id" element={<HostVanDetailLayout />}> 
-          <Route index element={<HostVanDescription/>}/>
-          <Route path="pricing" element={<HostVanPrice/>}/>
-          <Route path="photos" element={<HostVanPhotos/>}/>
+  <Route path="vans" element={<Vans />} 
+         loader={vansLoader} 
+         errorElement={<ErrorElement/>}/>
+  <Route 
+         path="vans/:id" 
+         element={<VanDetails />} 
+         loader={vanDetailLoader}
+         />
+  <Route 
+         path="host" 
+         element={<HostLayout/>}>
+      <Route 
+      index 
+      element={<Dashboard />}
+      loader={()=> {
+        return null
+      }}
+      />
+      <Route 
+      path="income" 
+      element={<Income />} 
+      loader={()=> {
+        return null
+      }}
+      />
+      <Route 
+      path="reviews" 
+      element={<Reviews />} 
+      loader={()=> {
+        return null
+      }}
+      />
+      <Route 
+      path="vans" 
+      element={<HostVans />} 
+      loader={()=> {
+        return null
+      }}
+      />
+      <Route 
+      path="vans/:id" 
+      element={<HostVanDetailLayout />}> 
+      loader={()=> {
+        return null
+      }}
+          <Route 
+          index 
+          element={<HostVanDescription/>}
+          loader={()=> {
+            return null
+          }}
+          />
+          <Route 
+          path="pricing" 
+          element={<HostVanPrice/>}
+          loader={()=> {
+            return null
+          }}
+          />
+          <Route 
+          path="photos" 
+          element={<HostVanPhotos/>}
+          loader={()=> {
+            return null
+          }}
+          />
       </Route>
   </Route>
   <Route path="*" element={<PageNotFound/>}/>
