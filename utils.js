@@ -1,7 +1,7 @@
 import { redirect } from "react-router-dom"
 
 export async function requireAuth() {
-    const isLoggedIn = true
+    const isLoggedIn = localStorage.getItem("login")
     
     if (!isLoggedIn) {
        const re= redirect("/login?message= Please login to continue")
