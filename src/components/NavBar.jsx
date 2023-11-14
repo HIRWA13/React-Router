@@ -1,14 +1,30 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export default function NavBar() {
+
+    const navLinkStyles = ({isActive}) => {
+        return {
+            fontWeight: isActive ? 'bold' : "normal",
+            color: isActive ? 'blue' : 'black'
+        }
+    }
+
   return (
     <nav>
-      <Link className="text-base p-2 cursor-point" to="/">
+      <NavLink
+        style={navLinkStyles}
+        className="text-base p-2 cursor-point active:font-bold"
+        to="/"
+      >
         Home
-      </Link>
-      <Link className="text-base p-2 cursor-point" to="/about">
+      </NavLink>
+      <NavLink
+        style={navLinkStyles}
+        className="text-base p-2 cursor-point active:font-bold"
+        to="/about"
+      >
         About
-      </Link>
+      </NavLink>
     </nav>
   );
 }
