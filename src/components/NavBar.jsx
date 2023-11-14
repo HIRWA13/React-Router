@@ -10,21 +10,30 @@ export default function NavBar() {
     }
 
   return (
-    <nav>
-      <NavLink
-        style={navLinkStyles}
-        className="text-base p-2 cursor-point active:font-bold"
-        to="/"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        style={navLinkStyles}
-        className="text-base p-2 cursor-point active:font-bold"
-        to="/about"
-      >
-        About
-      </NavLink>
-    </nav>
+    <>
+      <nav>
+        <NavLink
+          style={navLinkStyles}
+          className="text-base p-2 cursor-point active:font-bold"
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          style={navLinkStyles}
+          className="text-base p-2 cursor-point active:font-bold"
+          to="/about"
+        >
+          About
+        </NavLink>
+        <NavLink
+          style={navLinkStyles}
+          className="text-base p-2 cursor-point active:font-bold"
+          to="/products"
+        >
+          Products
+        </NavLink>
+      </nav>
+    </>
   );
 }
