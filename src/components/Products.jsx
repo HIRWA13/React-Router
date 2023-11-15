@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 export default function Products() {
   return (
     <div>
+    <input type="search" placeholder="search" className="border rounded-md p-2"/>
       <div>
         <Link
           to="featured"
@@ -17,6 +18,7 @@ export default function Products() {
           new
         </Link>
       </div>
+      <Outlet />
     </div>
   );
 }
