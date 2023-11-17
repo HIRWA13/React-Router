@@ -8,20 +8,24 @@ import NotFound from "./components/NotFound";
 import Products from "./components/Products";
 import FeaturedProducts from "./components/FeaturedProducts";
 import NewProducts from "./components/NewProducts";
+import Users from "./components/Users";
+import UserDetails from "./components/UserDetails";
 
 function App() {
   return (
     <>
-    <NavBar />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
         <Route path="products" element={<Products />}>
-          <Route index element={<FeaturedProducts />}/>
+          <Route index element={<FeaturedProducts />} />
           <Route path="featured" element={<FeaturedProducts />} />
-          <Route path="new" element={<NewProducts />}/>
+          <Route path="new" element={<NewProducts />} />
         </Route>
+        <Route path="users" element={<Users />} />
+        <Route path="users/userId" element={<UserDetails />} />
         <Route path="order-summary" element={<OrderSummary />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
@@ -29,4 +33,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
