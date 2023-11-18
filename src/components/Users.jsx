@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 export default function Users() {
   return (
@@ -14,6 +14,7 @@ export default function Users() {
           User 3
         </Link>
       </div>
+      <Outlet />
     </>
   );
 }
