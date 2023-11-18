@@ -33,6 +33,13 @@ export default function NavBar() {
         >
           Products
         </NavLink>
+        <NavLink
+          style={navLinkStyles}
+          className="text-base p-2 cursor-point active:font-bold"
+          to="/users"
+        >
+          Users
+        </NavLink>
       </nav>
     </>
   );
